@@ -8,6 +8,7 @@
 			<style backcolor="#BAEEFF"/>
 		</conditionalStyle>
 	</style>
+	Master
 	<parameter name="octaneUrl" class="java.lang.String"/>
 	<parameter name="hasOctaneUrl" class="java.lang.Boolean"/>
 	<parameter name="octaneUrlEntityType" class="java.lang.String"/>
