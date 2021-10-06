@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Main" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11d303fc-aee0-4f23-b241-746aec5f612f">
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<import value="org.apache.commons.lang3.StringUtils"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="successFormat">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{success}!=0]]></conditionExpression>
+			<style forecolor="#0000a5" isUnderline="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="skippedFormat">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{skipped}!=0]]></conditionExpression>
+			<style forecolor="#0000a5" isUnderline="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="warningFormat">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{warning}!=0]]></conditionExpression>
+			<style forecolor="#0000a5" isUnderline="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="failedFormat">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{failed}!=0]]></conditionExpression>
+			<style forecolor="#0000a5" isUnderline="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="totalFormat">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{total}!=0]]></conditionExpression>
+			<style forecolor="#0000a5" isUnderline="true"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="success" class="java.lang.Long"/>
+	<field name="octaneTypeName" class="java.lang.String"/>
+	<field name="skipped" class="java.lang.Long"/>
+	<field name="warning" class="java.lang.Long"/>
+	<field name="failed" class="java.lang.Long"/>
+	<field name="total" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006FE0" uuid="9ff5edb3-cedb-418f-b605-7ce3b6dd7c9d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement x="20" y="25" width="410" height="43" forecolor="#FFFFFF" uuid="20eff97d-dbc2-47ec-8374-1c61d62a981e"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MIGRATION REPORT]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement x="120" y="2" width="87" height="21" forecolor="#000000" uuid="6bc26b02-4d40-4e44-ba58-536b8c02342f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33b4e73e-ae40-4279-a28a-00ba1b2cb781"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Successful]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="2" width="87" height="21" forecolor="#000000" uuid="bea96800-17ec-468d-8233-272f317e8eb2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4cb7f06a-be3f-4d36-86df-52faaefb2a6c"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Skipped]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="2" width="87" height="21" forecolor="#000000" uuid="4dd08e7d-2838-4db5-93eb-df1c37ea96bd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f68a75c0-8a67-4d1a-a229-b8494f3d726e"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Warning]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="2" width="87" height="21" forecolor="#000000" uuid="9c1b1bf5-a6b4-454f-acf3-d7807d615df1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ebee5a40-9202-44c9-a3cc-43c7599f5105"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Failed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="2" width="87" height="21" forecolor="#000000" uuid="d8ebfc23-f29f-4605-a9ee-906cadc42539">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9fec71eb-b911-4a4b-8e9e-b656aaf910d0"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="35" uuid="f70bc373-c5e7-483b-9048-a383279b87f4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField hyperlinkType="Reference">
+				<reportElement style="successFormat" x="120" y="2" width="87" height="30" uuid="875987f8-b16c-4702-9ad8-c8508a0bdb5a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33b4e73e-ae40-4279-a28a-00ba1b2cb781"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{success}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{success}==0?null:$F{octaneTypeName}+"/"+"successful.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement style="skippedFormat" x="207" y="2" width="87" height="30" uuid="51ba8c7f-dafb-492f-8d18-32a8297afcdf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4cb7f06a-be3f-4d36-86df-52faaefb2a6c"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{skipped}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{skipped}==0?null:$F{octaneTypeName}+"/"+"skipped.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement style="warningFormat" x="294" y="2" width="87" height="30" uuid="8531adc7-f3bd-46d7-be67-f3e3f6110484">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f68a75c0-8a67-4d1a-a229-b8494f3d726e"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{warning}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{warning}==0?null:$F{octaneTypeName}+"/"+"warning.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement style="failedFormat" x="381" y="2" width="87" height="30" uuid="e92c3ed4-560d-43a9-9c11-c008a6aa1c4e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ebee5a40-9202-44c9-a3cc-43c7599f5105"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{failed}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{failed}==0?null:$F{octaneTypeName}+"/"+"failed.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement style="totalFormat" x="468" y="2" width="87" height="30" uuid="bd4c7667-4a28-445f-89a7-64a30e43c4bf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9fec71eb-b911-4a4b-8e9e-b656aaf910d0"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{total}==0?null:$F{octaneTypeName}+"/all.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+			<textField hyperlinkType="Reference">
+				<reportElement style="totalFormat" x="10" y="2" width="110" height="30" uuid="eb3567a4-ebd4-4247-8a61-cea0425e2d83">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="31c1b311-4a3d-4f68-8c7f-3528b9803ac7"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[StringUtils.capitalize($F{octaneTypeName}.replaceAll("_", " "))]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA[$F{total}==0?null:$F{octaneTypeName}+"/all.pdf"]]></hyperlinkReferenceExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FFFFFF" backcolor="#006FE0" uuid="b2b0e7c5-94a6-46e0-95ca-8ff99616a84d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FFFFFF" backcolor="#006FE0" uuid="2c0f1b97-7421-4ed3-b319-01adddcdd584"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
